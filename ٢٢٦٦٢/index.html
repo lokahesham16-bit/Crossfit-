@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Timer</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <h1>Timer</h1>
+
+    <div class="modes">
+      <button data-mode="tabata" class="mode active">Tabata</button>
+      <button data-mode="amrap" class="mode">AMRAP</button>
+      <button data-mode="emom" class="mode">EMOM</button>
+      <button data-mode="hiit" class="mode">HIIT</button>
+    </div>
+
+    <div id="settings" class="card"></div>
+
+    <div class="display card" id="display">
+      <div id="label" class="label">Ready</div>
+      <div id="time" class="time">00:00</div>
+      <div id="roundInfo" class="round-info"></div>
+    </div>
+
+    <div class="controls">
+      <button id="startBtn" class="primary">Start</button>
+      <button id="stopBtn">Stop</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+
+    <div id="hiitEditor" class="card hidden">
+      <h3>HIIT Setup</h3>
+      <div id="hiitList"></div>
+      <div class="hiit-controls">
+        <button id="addRound">Add Round</button>
+        <button id="saveHIIT">Save</button>
+      </div>
+      <small>Each round has Work (s) and Rest (s). Add unlimited rounds.</small>
+    </div>
+
+    <footer class="card small">
+      <div class="footer-left">
+        <button id="openAnghami">Open Anghami</button>
+        <button id="importTrainTrack">Import TrainTrack</button>
+      </div>
+      <div class="note">PWA with TTS • Add to Home Screen for app-like use</div>
+    </footer>
+  </div>
+
+  <script src="app_v2.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+    }
+  </script>
+</body>
+</html>
